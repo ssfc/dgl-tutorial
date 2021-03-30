@@ -113,15 +113,15 @@ print(g.ndata['label'].shape)  # number of nodes (2708);
 print(g.ndata['label'])
 
 print('\nNode features train mask: ')
-print(g.ndata['train_mask'].shape)  
+print(g.ndata['train_mask'].shape)  # number of nodes (2708); 
 print(g.ndata['train_mask'])
 
 print('\nNode features val mask: ')
-print(g.ndata['val_mask'].shape)  
+print(g.ndata['val_mask'].shape)  # number of nodes (2708); 
 print(g.ndata['val_mask'])
 
 print('\nNode features test mask: ')
-print(g.ndata['test_mask'].shape)  
+print(g.ndata['test_mask'].shape)  # number of nodes (2708); 
 print(g.ndata['test_mask'])
 
 
