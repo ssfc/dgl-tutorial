@@ -192,13 +192,16 @@ def train(g, model):
 # -------------------------------------------- Step 4, training cycle ----------------------------------------------
     for e in range(100):
         # Forward, here it calls forward function in models; 
-        logits = model(g, features)  # logits shape numNodes * numClasses (2708 * 7); 
+        logits = model(g, features)  # logits shape: numNodes * numClasses (2708 * 7); 
 
         # Compute prediction
-        pred = logits.argmax(1)
+        pred = logits.argmax(1)  # pred shape: numNodes (2708); 
 
         # Compute loss
         # Note that you should only compute the losses of the nodes in the training set.
+
+        # logits[train_mask].shape, NumTrainingSamples * numClasses (140 * 7); 
+        # labels[train_mask].shape, NumTrainingSamples 140; 
         loss = criterion(logits[train_mask], labels[train_mask])
 
         # Compute accuracy on training/validation/test
