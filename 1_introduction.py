@@ -191,8 +191,8 @@ def train(g, model):
 
 # -------------------------------------------- Step 4, training cycle ----------------------------------------------
     for e in range(100):
-        # Forward
-        logits = model(g, features)
+        # Forward, here it calls forward function in models; 
+        logits = model(g, features)  # logits shape numNodes * numClasses (2708 * 7); 
 
         # Compute prediction
         pred = logits.argmax(1)
