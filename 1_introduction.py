@@ -94,12 +94,19 @@ g = dataset[0]
 
 print('Node features')
 print(g.ndata)
+
 print('Node features feat: ')
 print(g.ndata['feat'])
 print('Node features label: ')
 print(g.ndata['label'])
+
 print('Node features train mask: ')
 print(g.ndata['train_mask'])
+print('Node features val mask: ')
+print(g.ndata['val_mask'])
+print('Node features test mask: ')
+print(g.ndata['test_mask'])
+
 
 print('Edge features')
 print(g.edata)
