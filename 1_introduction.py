@@ -80,7 +80,7 @@ print('Number of categories:', dataset.num_classes)
 # 
 
 g = dataset[0]
-
+g = g.to('cuda')
 
 ######################################################################
 # A DGL graph can store node features and edge features in two
@@ -224,7 +224,7 @@ def train(g, model):
                 e, loss, val_acc, best_val_acc, test_acc, best_test_acc))
 
 
-model = GCN(g.ndata['feat'].shape[1], 16, dataset.num_classes)
+model = GCN(g.ndata['feat'].shape[1], 16, dataset.num_classes).to('cuda')
 train(g, model)
 
 
