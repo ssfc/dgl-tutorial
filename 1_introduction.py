@@ -21,7 +21,9 @@ networks with PyTorch.
 
 """
 
+from dgl.nn import GraphConv
 import dgl
+import dgl.data
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -59,8 +61,8 @@ import torch.nn.functional as F
 # --------------------
 # 
 
-import dgl.data
 
+# -------------------------------------------- Step 1, prepare dataset ----------------------------------------------
 dataset = dgl.data.CoraGraphDataset()
 print('Number of categories:', dataset.num_classes)
 # NumNodes: 2708
@@ -70,8 +72,6 @@ print('Number of categories:', dataset.num_classes)
 # NumTrainingSamples: 140
 # NumValidationSamples: 500
 # NumTestSamples: 1000
-
-
 
 
 ######################################################################
@@ -142,7 +142,8 @@ print(g.edata)
 # modules, which inherit ``torch.nn.Module``.
 # 
 
-from dgl.nn import GraphConv
+
+# -------------------------------------------- Step 2, design model using class ----------------------------------------------
 
 class GCN(nn.Module):
     def __init__(self, in_feats, h_feats, num_classes):
@@ -158,6 +159,7 @@ class GCN(nn.Module):
     
 # Create the model with given dimensions
 model = GCN(g.ndata['feat'].shape[1], 16, dataset.num_classes)
+# in_feats is number of features (1433), h_feats is 16, num_classes is 7; (2021-3-30) 
 
 
 ######################################################################
@@ -174,6 +176,7 @@ model = GCN(g.ndata['feat'].shape[1], 16, dataset.num_classes)
 # 
 
 def train(g, model):
+# -------------------------------------------- Step 3, construct loss and optimizer ----------------------------------------------
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     best_val_acc = 0
     best_test_acc = 0
@@ -183,6 +186,8 @@ def train(g, model):
     train_mask = g.ndata['train_mask']
     val_mask = g.ndata['val_mask']
     test_mask = g.ndata['test_mask']
+
+# -------------------------------------------- Step 4, training cycle ----------------------------------------------
     for e in range(100):
         # Forward
         logits = model(g, features)
@@ -212,6 +217,8 @@ def train(g, model):
         if e % 5 == 0:
             print('In epoch {}, loss: {:.3f}, val acc: {:.3f} (best {:.3f}), test acc: {:.3f} (best {:.3f})'.format(
                 e, loss, val_acc, best_val_acc, test_acc, best_test_acc))
+
+
 model = GCN(g.ndata['feat'].shape[1], 16, dataset.num_classes)
 train(g, model)
 
