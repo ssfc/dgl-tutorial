@@ -63,6 +63,15 @@ import dgl.data
 
 dataset = dgl.data.CoraGraphDataset()
 print('Number of categories:', dataset.num_classes)
+# NumNodes: 2708
+# NumEdges: 10556
+# NumFeats: 1433
+# NumClasses: 7
+# NumTrainingSamples: 140
+# NumValidationSamples: 500
+# NumTestSamples: 1000
+
+
 
 
 ######################################################################
@@ -96,12 +105,15 @@ g = dataset[0]
 #print(g.ndata)
 
 print('\nNode features feat: ')
-print(g.ndata['feat'].shape)  # row of feat is number of nodes, column of feat is number of features; 
+print(g.ndata['feat'].shape)  # row of feat is number of nodes (2708), column of feat is number of features (1433); 
 print(g.ndata['feat'])
-print('Node features label: ')
+
+print('\nNode features label: ')  
+print(g.ndata['label'].shape)  # number is label (2708); 
 print(g.ndata['label'])
 
 print('\nNode features train mask: ')
+print(g.ndata['train_mask'].shape)
 print(g.ndata['train_mask'])
 print('Node features val mask: ')
 print(g.ndata['val_mask'])
