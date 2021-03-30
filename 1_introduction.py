@@ -109,15 +109,19 @@ print(g.ndata['feat'].shape)  # row of feat is number of nodes (2708), column of
 print(g.ndata['feat'])
 
 print('\nNode features label: ')  
-print(g.ndata['label'].shape)  # number is label (2708); 
+print(g.ndata['label'].shape)  # number of nodes (2708); 
 print(g.ndata['label'])
 
 print('\nNode features train mask: ')
-print(g.ndata['train_mask'].shape)
+print(g.ndata['train_mask'].shape)  
 print(g.ndata['train_mask'])
-print('Node features val mask: ')
+
+print('\nNode features val mask: ')
+print(g.ndata['val_mask'].shape)  
 print(g.ndata['val_mask'])
-print('Node features test mask: ')
+
+print('\nNode features test mask: ')
+print(g.ndata['test_mask'].shape)  
 print(g.ndata['test_mask'])
 
 
