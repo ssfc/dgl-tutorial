@@ -178,6 +178,8 @@ model = GCN(g.ndata['feat'].shape[1], 16, dataset.num_classes)
 def train(g, model):
 # -------------------------------------------- Step 3, construct loss and optimizer ----------------------------------------------
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+    criterion = F.cross_entropy
+
     best_val_acc = 0
     best_test_acc = 0
 
@@ -197,7 +199,7 @@ def train(g, model):
 
         # Compute loss
         # Note that you should only compute the losses of the nodes in the training set.
-        loss = F.cross_entropy(logits[train_mask], labels[train_mask])
+        loss = criterion(logits[train_mask], labels[train_mask])
 
         # Compute accuracy on training/validation/test
         train_acc = (pred[train_mask] == labels[train_mask]).float().mean()
