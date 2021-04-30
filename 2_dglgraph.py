@@ -130,6 +130,7 @@ print(g.num_nodes())
 print("num edges: ")
 print(g.num_edges())
 # Out degrees of the center node
+print("out degree of 0: ")
 print(g.out_degrees(0))
 # In degrees of the center node - note that the graph is directed so the in degree should be 0.
 print(g.in_degrees(0))
