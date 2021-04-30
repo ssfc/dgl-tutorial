@@ -50,7 +50,7 @@ g = dgl.graph(([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]))
 
 # Print the source and destination nodes of every edge.
 print("-----------------------------------------------------------------------------------")
-print("Step 1: DGL Graph Construction")
+print("Step 1: DGL Graph Construction: ")
 print(g.edges())
 
 
@@ -90,7 +90,7 @@ g.edata['a'] = torch.randn(5, 4)  # edata is edge;
 g.ndata['y'] = torch.randn(6, 5, 4)
 
 print("-----------------------------------------------------------------------------------")
-print("Step 2: Assigning Node and Edge Features to Graph")
+print("Step 2: Assigning Node and Edge Features to Graph: ")
 print(g.edata['a'])
 
 
@@ -122,6 +122,7 @@ print(g.edata['a'])
 
 
 print("-----------------------------------------------------------------------------------")
+print("Step 3: Querying Graph Structures: ")
 print(g.num_nodes())
 print(g.num_edges())
 # Out degrees of the center node
