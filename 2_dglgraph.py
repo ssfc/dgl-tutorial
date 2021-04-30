@@ -133,8 +133,13 @@ print(g.num_edges())
 print("out degree of 0: ")
 print(g.out_degrees(0))
 # In degrees of the center node - note that the graph is directed so the in degree should be 0.
+print("in degree of 0: ")
 print(g.in_degrees(0))
 
+print("out degree of 2: ")
+print(g.out_degrees(2))
+print("in degree of 2: ")
+print(g.in_degrees(2))
 
 ######################################################################
 # Graph Transformations
