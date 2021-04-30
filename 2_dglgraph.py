@@ -166,12 +166,16 @@ sg2 = g.edge_subgraph([0, 1, 3])
 
 print("-----------------------------------------------------------------------------------")
 # The original IDs of each node in sg1
+print("original IDs of each node in sg1: ")
 print(sg1.ndata[dgl.NID])
 # The original IDs of each edge in sg1
+print("original IDs of each edge in sg1: ")
 print(sg1.edata[dgl.EID])
 # The original IDs of each node in sg2
+print("original IDs of each node in sg2: ")
 print(sg2.ndata[dgl.NID])
 # The original IDs of each edge in sg2
+print("original IDs of each edge in sg2: ")
 print(sg2.edata[dgl.EID])
 
 
