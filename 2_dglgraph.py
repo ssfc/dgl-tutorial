@@ -165,6 +165,7 @@ sg2 = g.edge_subgraph([0, 1, 3])
 # 
 
 print("-----------------------------------------------------------------------------------")
+print("Step 4: Graph Transformations")
 # The original IDs of each node in sg1
 print("original IDs of each node in sg1: ")
 print(sg1.ndata[dgl.NID])
