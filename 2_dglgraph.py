@@ -230,10 +230,14 @@ dgl.save_graphs('graphs.dgl', [g, sg1, sg2])
 
 # Load graphs
 (g,), _ = dgl.load_graphs('graph.dgl')
+print("graph g: ")
 print(g)
 (g, sg1, sg2), _ = dgl.load_graphs('graphs.dgl')
+print("graph g: ")
 print(g)
+print("graph sg1: ")
 print(sg1)
+print("graph sg2: ")
 print(sg2)
 
 
