@@ -51,6 +51,7 @@ g = dgl.graph(([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]))
 # Print the source and destination nodes of every edge.
 print("-----------------------------------------------------------------------------------")
 print("Step 1: DGL Graph Construction: ")
+print("first vector is made up of sources, second vector is made up of destinations: ")
 print(g.edges())
 
 
@@ -91,6 +92,7 @@ g.ndata['y'] = torch.randn(6, 5, 4)
 
 print("-----------------------------------------------------------------------------------")
 print("Step 2: Assigning Node and Edge Features to Graph: ")
+print("edge feature vector: ")
 print(g.edata['a'])
 
 
