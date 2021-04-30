@@ -49,7 +49,7 @@ g = dgl.graph(([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]))
 # 
 
 # Print the source and destination nodes of every edge.
-print("")
+print("first vector is sources, second vector is destinations: ")
 print(g.edges())
 
 
