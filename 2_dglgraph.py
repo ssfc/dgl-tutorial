@@ -186,12 +186,16 @@ print(sg2.edata[dgl.EID])
 #
 
 # The original node feature of each node in sg1
+print("original node feature of each node in sg1: ")
 print(sg1.ndata['x'])
 # The original edge feature of each node in sg1
+print("original edge feature of each node in sg1: ")
 print(sg1.edata['a'])
 # The original node feature of each node in sg2
+print("original node feature of each node in sg2: ")
 print(sg2.ndata['x'])
 # The original edge feature of each node in sg2
+print("original edge feature of each node in sg2: ")
 print(sg2.edata['a'])
 
 
@@ -205,6 +209,7 @@ print(sg2.edata['a'])
 #    into a bidirectional graph first via adding reverse edges.
 # 
 
+print("add reverse edges: ")
 newg = dgl.add_reverse_edges(g)
 newg.edges()
 
@@ -218,6 +223,8 @@ newg.edges()
 # 
 
 # Save graphs
+print("-----------------------------------------------------------------------------------")
+print("Step 5: Loading and Saving Graphs: ")
 dgl.save_graphs('graph.dgl', g)
 dgl.save_graphs('graphs.dgl', [g, sg1, sg2])
 
