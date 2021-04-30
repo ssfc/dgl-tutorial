@@ -125,7 +125,9 @@ print(g.edata['a'])
 
 print("-----------------------------------------------------------------------------------")
 print("Step 3: Querying Graph Structures: ")
+print("num nodes: ")
 print(g.num_nodes())
+print("num edges: ")
 print(g.num_edges())
 # Out degrees of the center node
 print(g.out_degrees(0))
@@ -156,6 +158,7 @@ sg2 = g.edge_subgraph([0, 1, 3])
 # ``dgl.EID`` in the new graph.
 # 
 
+print("-----------------------------------------------------------------------------------")
 # The original IDs of each node in sg1
 print(sg1.ndata[dgl.NID])
 # The original IDs of each edge in sg1
