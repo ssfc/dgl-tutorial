@@ -49,7 +49,8 @@ g = dgl.graph(([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]))
 # 
 
 # Print the source and destination nodes of every edge.
-print("first vector is sources, second vector is destinations: ")
+print("-----------------------------------------------------------------------------------")
+print("Step 1: DGL Graph Construction")
 print(g.edges())
 
 
@@ -89,6 +90,7 @@ g.edata['a'] = torch.randn(5, 4)  # edata is edge;
 g.ndata['y'] = torch.randn(6, 5, 4)
 
 print("-----------------------------------------------------------------------------------")
+print("Step 2: Assigning Node and Edge Features to Graph")
 print(g.edata['a'])
 
 
@@ -118,6 +120,8 @@ print(g.edata['a'])
 # ``DGLGraph`` object provides various methods to query a graph structure.
 # 
 
+
+print("-----------------------------------------------------------------------------------")
 print(g.num_nodes())
 print(g.num_edges())
 # Out degrees of the center node
