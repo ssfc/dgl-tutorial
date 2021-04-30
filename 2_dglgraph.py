@@ -231,7 +231,7 @@ dgl.save_graphs('graphs.dgl', [g, sg1, sg2])
 # Load graphs
 (g,), _ = dgl.load_graphs('graph.dgl')
 print("graph g: ")
-print(g)
+print(g)  # each graph contain nodes and their features, edges and their features; 
 (g, sg1, sg2), _ = dgl.load_graphs('graphs.dgl')
 print("graph g: ")
 print(g)
