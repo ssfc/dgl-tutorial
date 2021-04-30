@@ -82,12 +82,13 @@ print(g.edges())
 # 
 
 # Assign a 3-dimensional node feature vector for each node.
-g.ndata['x'] = torch.randn(6, 3)
+g.ndata['x'] = torch.randn(6, 3)  # ndatra is node; 
 # Assign a 4-dimensional edge feature vector for each edge.
-g.edata['a'] = torch.randn(5, 4)
+g.edata['a'] = torch.randn(5, 4)  # edata is edge; 
 # Assign a 5x4 node feature matrix for each node.  Node and edge features in DGL can be multi-dimensional.
 g.ndata['y'] = torch.randn(6, 5, 4)
 
+print("-----------------------------------------------------------------------------------")
 print(g.edata['a'])
 
 
