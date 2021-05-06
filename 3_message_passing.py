@@ -163,7 +163,7 @@ class Model(nn.Module):
 import dgl.data
 
 dataset = dgl.data.CoraGraphDataset()
-g = dataset[0]
+g = dataset[0]  # the first graph; 
 
 def train(g, model):
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
@@ -176,6 +176,7 @@ def train(g, model):
     train_mask = g.ndata['train_mask']
     val_mask = g.ndata['val_mask']
     test_mask = g.ndata['test_mask']
+    
     for e in range(200):
         # Forward
         logits = model(g, features)
