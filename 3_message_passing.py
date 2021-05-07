@@ -138,7 +138,7 @@ class SAGEConv(nn.Module):
 ######################################################################
 # Afterwards, you can stack your own GraphSAGE convolution layers to form
 # a multi-layer GraphSAGE network.
-#
+# ---------------------------------- Step 2: Design model using Class ----------------------------------------;
 
 class Model(nn.Module):
     def __init__(self, in_feats, h_feats, num_classes):
