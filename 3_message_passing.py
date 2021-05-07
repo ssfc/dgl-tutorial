@@ -201,7 +201,7 @@ def train(g, model):
             best_val_acc = val_acc
             best_test_acc = test_acc
 
-        # Step 4.2, Backward
+        # Step 4.2, Backward; 
         optimizer.zero_grad()
         loss.backward()
 
