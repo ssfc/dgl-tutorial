@@ -228,7 +228,7 @@ if torch.cuda.is_available():
 
 train(g, model)
 
-'''
+
 ######################################################################
 # More customization
 # ------------------
@@ -302,6 +302,11 @@ class Model(nn.Module):
         return h
     
 model = Model(g.ndata['feat'].shape[1], 16, dataset.num_classes)
+
+if torch.cuda.is_available():
+    print("Use GPU")
+    model.cuda()
+
 train(g, model)
 
 
@@ -373,4 +378,3 @@ def sum_udf(nodes):
 
 # Thumbnail Courtesy: Representation Learning on Networks, Jure Leskovec, WWW 2018
 # sphinx_gallery_thumbnail_path = '_static/blitz_3_message_passing.png'
-'''
