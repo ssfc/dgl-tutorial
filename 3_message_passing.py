@@ -178,6 +178,7 @@ def train(g, model):
     val_mask = g.ndata['val_mask']
     test_mask = g.ndata['test_mask']
     
+    # ---------------------------------- Step 4: training cycle -------------------------------------; 
     for e in range(200):
         # Forward
         logits = model(g, features)
