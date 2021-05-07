@@ -166,6 +166,7 @@ dataset = dgl.data.CoraGraphDataset()
 g = dataset[0]  # the first graph; 
 
 def train(g, model):
+    # ---------------------------------- Step 3: Construct loss and optimizer -------------------------------------; 
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     all_logits = []
     best_val_acc = 0
