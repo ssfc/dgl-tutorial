@@ -158,7 +158,7 @@ class Model(nn.Module):
 # ~~~~~~~~~~~~~
 # The following code for data loading and training loop is directly copied
 # from the introduction tutorial.
-# -------------------------------- Step 1: prepare dataset ------------------------------------------; 
+# ---------------------------------- Step 1: prepare dataset ------------------------------------------; 
 
 import dgl.data
 
