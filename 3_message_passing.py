@@ -165,6 +165,13 @@ import dgl.data
 dataset = dgl.data.CoraGraphDataset()
 g = dataset[0]  # the first graph; 
 
+if torch.cuda.is_available():
+    print("Use GPU")
+    g = g.to('cuda')
+
+
+
+
 def train(g, model):
     # ---------------------------------- Step 3: Construct loss and optimizer -------------------------------------; 
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
@@ -214,9 +221,14 @@ def train(g, model):
                 e, loss, val_acc, best_val_acc, test_acc, best_test_acc))
 
 model = Model(g.ndata['feat'].shape[1], 16, dataset.num_classes)
+
+if torch.cuda.is_available():
+    print("Use GPU")
+    model.cuda()
+
 train(g, model)
 
-
+'''
 ######################################################################
 # More customization
 # ------------------
@@ -361,3 +373,4 @@ def sum_udf(nodes):
 
 # Thumbnail Courtesy: Representation Learning on Networks, Jure Leskovec, WWW 2018
 # sphinx_gallery_thumbnail_path = '_static/blitz_3_message_passing.png'
+'''
