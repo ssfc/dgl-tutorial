@@ -180,7 +180,7 @@ def train(g, model):
     
     # ---------------------------------- Step 4: training cycle -------------------------------------; 
     for e in range(200):
-        # Forward
+        # Step 4.1, Forward; 
         logits = model(g, features)
 
         # Compute prediction
@@ -201,9 +201,11 @@ def train(g, model):
             best_val_acc = val_acc
             best_test_acc = test_acc
 
-        # Backward
+        # Step 4.2, Backward
         optimizer.zero_grad()
         loss.backward()
+
+        # Step 4.3, update; 
         optimizer.step()
         all_logits.append(logits.detach())
 
