@@ -204,6 +204,7 @@ class SyntheticDataset(DGLDataset):
         # The label and number of nodes are values.
         label_dict = {}
         num_nodes_dict = {}
+
         for _, row in properties.iterrows():
             label_dict[row['graph_id']] = row['label']
             num_nodes_dict[row['graph_id']] = row['num_nodes']
@@ -236,8 +237,12 @@ class SyntheticDataset(DGLDataset):
 
 dataset = SyntheticDataset()
 graph, label = dataset[0]
-print(graph, label)
 
+print("")
+print("graph: ")
+print(graph)
+print("label: ")
+print(label)
 
 # Thumbnail Courtesy: (Un)common Use Cases for Graph Databases, Michal Bachman
 # sphinx_gallery_thumbnail_path = '_static/blitz_6_load_data.png'
