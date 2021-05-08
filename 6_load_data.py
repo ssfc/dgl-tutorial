@@ -64,10 +64,13 @@ print("members head: ")
 print(members.head())
 
 
-
 interactions = pd.read_csv('./interactions.csv')
-interactions.head()
+print("interactions: ")
+print(interactions)
 
+interactions.head()
+print("interactions head: ")
+print(interactions.head())
 
 ######################################################################
 # This tutorial treats the members as nodes and interactions as edges. It
