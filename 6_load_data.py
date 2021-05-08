@@ -123,14 +123,14 @@ class KarateClubDataset(DGLDataset):
         n_train = int(n_nodes * 0.6)
         n_val = int(n_nodes * 0.2)
 
-        train_mask = torch.zeros(n_nodes, dtype=torch.bool)
-        val_mask = torch.zeros(n_nodes, dtype=torch.bool)
-        test_mask = torch.zeros(n_nodes, dtype=torch.bool)
+        train_mask = torch.zeros(n_nodes, dtype=torch.bool)  # tensor; 
+        val_mask = torch.zeros(n_nodes, dtype=torch.bool)  # tensor; 
+        test_mask = torch.zeros(n_nodes, dtype=torch.bool)  # tensor; 
 
-        train_mask[:n_train] = True
-        val_mask[n_train:n_train + n_val] = True
-        test_mask[n_train + n_val:] = True
-        
+        train_mask[:n_train] = True  # 0 to n_train; 
+        val_mask[n_train:n_train + n_val] = True  # n_train to n_train + n_val; 
+        test_mask[n_train + n_val:] = True  # the remaining; 
+
         self.graph.ndata['train_mask'] = train_mask
         self.graph.ndata['val_mask'] = val_mask
         self.graph.ndata['test_mask'] = test_mask
