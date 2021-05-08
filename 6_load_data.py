@@ -104,7 +104,7 @@ class KarateClubDataset(DGLDataset):
     def process(self):
         nodes_data = pd.read_csv('./members.csv')
         edges_data = pd.read_csv('./interactions.csv')
-        
+
         node_features = torch.from_numpy(nodes_data['Age'].to_numpy())
         node_labels = torch.from_numpy(nodes_data['Club'].astype('category').cat.codes.to_numpy())
         edge_features = torch.from_numpy(edges_data['Weight'].to_numpy())
@@ -121,14 +121,16 @@ class KarateClubDataset(DGLDataset):
         # masks indicating whether a node belongs to training, validation, and test set.
         n_nodes = nodes_data.shape[0]
         n_train = int(n_nodes * 0.6)
-
         n_val = int(n_nodes * 0.2)
+
         train_mask = torch.zeros(n_nodes, dtype=torch.bool)
         val_mask = torch.zeros(n_nodes, dtype=torch.bool)
         test_mask = torch.zeros(n_nodes, dtype=torch.bool)
+
         train_mask[:n_train] = True
         val_mask[n_train:n_train + n_val] = True
         test_mask[n_train + n_val:] = True
+        
         self.graph.ndata['train_mask'] = train_mask
         self.graph.ndata['val_mask'] = val_mask
         self.graph.ndata['test_mask'] = test_mask
