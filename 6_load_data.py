@@ -104,9 +104,11 @@ class KarateClubDataset(DGLDataset):
     def process(self):
         nodes_data = pd.read_csv('./members.csv')
         edges_data = pd.read_csv('./interactions.csv')
+        
         node_features = torch.from_numpy(nodes_data['Age'].to_numpy())
         node_labels = torch.from_numpy(nodes_data['Club'].astype('category').cat.codes.to_numpy())
         edge_features = torch.from_numpy(edges_data['Weight'].to_numpy())
+
         edges_src = torch.from_numpy(edges_data['Src'].to_numpy())
         edges_dst = torch.from_numpy(edges_data['Dst'].to_numpy())
         
