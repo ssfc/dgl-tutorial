@@ -61,7 +61,7 @@ print(members)
 
 members.head()
 print("members head: ")
-print(members.head())
+print(members.head())    # return the first 5 rows; 
 
 
 interactions = pd.read_csv('./interactions.csv')
@@ -70,7 +70,7 @@ print(interactions)
 
 interactions.head()
 print("interactions head: ")
-print(interactions.head())
+print(interactions.head())  # return the first 5 rows; 
 
 ######################################################################
 # This tutorial treats the members as nodes and interactions as edges. It
