@@ -144,6 +144,7 @@ class KarateClubDataset(DGLDataset):
 dataset = KarateClubDataset()
 graph = dataset[0]
 
+print("graph: ")
 print(graph)
 
 
